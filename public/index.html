@@ -174,7 +174,7 @@ a:hover {
 }
 
 .navbar {
-    padding: 1.4rem 0;
+    padding: 0.75rem 0;
 }
 
 .navbar .container {
@@ -195,7 +195,7 @@ a:hover {
 }
 
 .brand-logo {
-    height: 160px;
+    height: 100px;
     width: auto;
     max-width: none !important;
     object-fit: contain;
@@ -244,10 +244,51 @@ a:hover {
     transition: var(--transition-fast);
 }
 
+/* ── SPLASH SECTION ──────────────────────────────────────────────── */
+.splash {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 2.5rem;
+}
+
+.splash .sydney-photo-bg::after {
+    background: rgba(0, 0, 0, 0.15) !important;
+}
+
+.splash-scroll {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255,255,255,0.85);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    animation: scrollBounce 2s ease-in-out infinite;
+}
+
+.splash-scroll svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    stroke: rgba(255,255,255,0.85);
+}
+
+@keyframes scrollBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+}
+
 /* Hero Section */
 .hero {
     background: linear-gradient(135deg, var(--gray-50) 0%, var(--gray-100) 100%);
-    padding: 8rem 0 4rem;
+    padding: 7rem 0 4rem;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -403,6 +444,11 @@ a:hover {
     justify-content: center;
     margin-bottom: var(--spacing-lg);
     overflow: hidden;
+}
+
+.service-icon:empty {
+    display: none;
+    margin: 0;
 }
 .service-icon img {
     width: 100%;
@@ -860,6 +906,10 @@ a:hover {
         transform: translateY(0);
     }
     
+    .navbar {
+        padding: 0.5rem 0;
+    }
+
     .nav-toggle {
         display: flex;
     }
@@ -876,6 +926,10 @@ a:hover {
         transform: rotate(-45deg) translate(7px, -6px);
     }
     
+    .navbar {
+        padding: 0.5rem 0;
+    }
+
     .nav-toggle {
         display: flex;
     }
@@ -893,7 +947,7 @@ a:hover {
     }
     
     .hero {
-        padding: 6rem 0 3rem;
+        padding: 5rem 0 3rem;
     }
     
     .hero-buttons {
@@ -903,9 +957,11 @@ a:hover {
     }
     
     .hero-features {
-        flex-direction: column;
-        gap: var(--spacing-xl);
-        align-items: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: var(--spacing-md);
+        justify-content: center;
+        padding: 1rem 1.5rem;
     }
     
     .services-grid {
@@ -1135,8 +1191,8 @@ a:hover {
     }
     
     .brand-logo {
-        height: 80px;
-        max-width: 240px;
+        height: 55px;
+        max-width: 180px;
     }
     
     .nav-brand {
@@ -1160,7 +1216,7 @@ a:hover {
     }
     
     .brand-logo {
-        height: 100px !important;
+        height: 65px !important;
     }
     
     .showcase-logo {
@@ -1272,7 +1328,7 @@ a:hover {
 
 /* ── HERO ────────────────────────────────────────────────────────── */
 .hero {
-    padding: 10rem 0 6rem;
+    padding: 8rem 0 5rem;
     text-align: center;
     background: none;
     min-height: 100vh;
@@ -1286,7 +1342,7 @@ a:hover {
 
 .hero h1 {
     color: #0f172a !important;
-    font-size: clamp(2.5rem, 5vw, 3.8rem) !important;
+    font-size: clamp(1.8rem, 5vw, 3.8rem) !important;
     font-weight: 800 !important;
     text-shadow: 0 1px 3px rgba(255,255,255,0.8);
 }
@@ -1483,8 +1539,17 @@ a:hover {
         </nav>
     </header>
 
-    <section id="home" class="hero">
+    <section id="splash" class="splash">
         <div class="sydney-photo-bg"></div>
+        <a href="#home" class="splash-scroll" aria-label="Scroll to content">
+            <span>Explore</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"/>
+            </svg>
+        </a>
+    </section>
+
+    <section id="home" class="hero">
         <div class="window-grid"></div>
 
         <div class="hero-content">
