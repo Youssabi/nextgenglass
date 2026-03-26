@@ -264,33 +264,6 @@ a:hover {
     opacity: 0.4;
 }
 
-.hero-logo-block {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 3rem;
-}
-
-.hero-logo-block img {
-    height: 260px;
-    width: auto;
-    object-fit: contain;
-}
-
-@media (max-width: 768px) {
-    .hero-logo-block img {
-        height: 180px;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-logo-block img {
-        height: 140px;
-    }
-}
-
 .hero-content {
     position: relative;
     z-index: 2;
@@ -1514,10 +1487,6 @@ a:hover {
         <div class="sydney-photo-bg"></div>
         <div class="window-grid"></div>
 
-        <div class="hero-logo-block">
-            <img id="hero-logo-img" alt="Nexgen Glass">
-        </div>
-
         <div class="hero-content">
             <h1>Transform Your Space with Premium Glass</h1>
             <p>Expert installation of shower screens, pool fencing, balustrades, glass replacement, and more. Quality craftsmanship meets modern design.</p>
@@ -1828,11 +1797,6 @@ a:hover {
 
     <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Copy nav logo into hero logo block
-    const navLogo = document.querySelector('.brand-logo');
-    const heroLogo = document.getElementById('hero-logo-img');
-    if (navLogo && heroLogo) heroLogo.src = navLogo.src;
-
     initNavigation();
     initSmoothScroll();
     initMobileMenu();
