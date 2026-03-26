@@ -1971,7 +1971,7 @@ function initContactForm() {
     const form = document.getElementById('quote-form');
     if (!form) return;
 
-    form.addEventListener('submit', function(e) {
+    form.addEventListener('submit', async function(e) {
         e.preventDefault();
         const data   = Object.fromEntries(new FormData(this));
         const errors = [];
@@ -1985,9 +1985,31 @@ function initContactForm() {
 
         if (errors.length) {
             showToast('Please fill in all required fields.', 'error');
-        } else {
-            showToast("Thank you! We'll be in touch within 24 hours.", 'success');
-            this.reset();
+            return;
+        }
+
+        const submitBtn = form.querySelector('[type="submit"]');
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending…';
+
+        try {
+            const res = await fetch('/api/quote', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data),
+            });
+
+            if (res.ok) {
+                showToast("Thank you! We'll be in touch within 24 hours.", 'success');
+                form.reset();
+            } else {
+                showToast('Something went wrong. Please try again or call us directly.', 'error');
+            }
+        } catch {
+            showToast('Network error. Please check your connection and try again.', 'error');
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Request Quote';
         }
     });
 }
