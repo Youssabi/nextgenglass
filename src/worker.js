@@ -37,6 +37,21 @@ export default {
         return jsonResponse({ error: 'Failed to send email' }, 500);
       }
 
+      // Confirmation email to the customer
+      await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${env.RESEND_API_KEY}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          from: 'quotes@nexgenglass.net',
+          to: email,
+          subject: 'Thanks for your enquiry – NexGen Glass',
+          html: customerConfirmationHtml({ name }),
+        }),
+      });
+
       return jsonResponse({ success: true });
     }
 
@@ -82,6 +97,25 @@ function quoteEmailHtml({ name, email, phone, service, message }) {
     </tr>
   </table>
   <p style="margin:32px 0 0;font-size:0.85em;color:#64748b">Sent from nexgenglass.net quote form</p>
+</body>
+</html>`;
+}
+
+function customerConfirmationHtml({ name }) {
+  return `
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body style="font-family:sans-serif;color:#1e293b;max-width:600px;margin:0 auto;padding:24px">
+  <h2 style="margin:0 0 16px;color:#000">Hey ${escHtml(name)},</h2>
+  <p style="margin:0 0 12px;line-height:1.6">Thanks for reaching out to NexGen Glass!</p>
+  <p style="margin:0 0 12px;line-height:1.6">We've received your enquiry and I'll be in contact with you shortly to discuss your project.</p>
+  <p style="margin:0 0 32px;line-height:1.6">In the meantime, feel free to check out our work on Instagram or give us a call if it's urgent.</p>
+  <p style="margin:0;line-height:1.6">Cheers,<br><strong>NexGen Glass</strong><br>
+    <a href="tel:+61426214865" style="color:#1e40af">+61 426 214 865</a>
+  </p>
+  <hr style="margin:32px 0;border:none;border-top:1px solid #e2e8f0">
+  <p style="margin:0;font-size:0.8em;color:#94a3b8">NexGen Glass · Sydney, NSW, Australia</p>
 </body>
 </html>`;
 }
