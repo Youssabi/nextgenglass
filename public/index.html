@@ -866,157 +866,6 @@ a:hover {
     color: var(--gray-500);
 }
 
-/* Responsive Design */
-@media (max-width: 1024px) {
-    .hero-features {
-        gap: var(--spacing-2xl);
-    }
-    
-    .services-grid {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    }
-    
-    .about-content {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-2xl);
-    }
-    
-    .contact-content {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-2xl);
-    }
-}
-
-@media (max-width: 768px) {
-    .nav-menu {
-        position: fixed;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: var(--white);
-        box-shadow: var(--shadow-lg);
-        flex-direction: column;
-        padding: var(--spacing-lg);
-        transform: translateY(-100vh);
-        transition: var(--transition-normal);
-        gap: var(--spacing-md);
-    }
-    
-    .nav-menu.active {
-        transform: translateY(0);
-    }
-    
-    .navbar {
-        padding: 0.5rem 0;
-    }
-
-    .nav-toggle {
-        display: flex;
-    }
-    
-    .nav-toggle.active span:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
-    }
-    
-    .nav-toggle.active span:nth-child(2) {
-        opacity: 0;
-    }
-    
-    .nav-toggle.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(7px, -6px);
-    }
-    
-    .navbar {
-        padding: 0.5rem 0;
-    }
-
-    .nav-toggle {
-        display: flex;
-    }
-    
-    .nav-toggle.active span:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
-    }
-    
-    .nav-toggle.active span:nth-child(2) {
-        opacity: 0;
-    }
-    
-    .nav-toggle.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(7px, -6px);
-    }
-    
-    .hero {
-        padding: 5rem 0 3rem;
-    }
-    
-    .hero-buttons {
-        flex-direction: column;
-        align-items: center;
-        gap: var(--spacing-md);
-    }
-    
-    .hero-features {
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: var(--spacing-md);
-        justify-content: center;
-        padding: 1rem 1.5rem;
-    }
-    
-    .services-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .about-stats {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-md);
-    }
-    
-    .form-row {
-        grid-template-columns: 1fr;
-    }
-    
-    .footer-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: var(--spacing-xl);
-    }
-    
-    .social-links {
-        justify-content: center;
-    }
-}
-
-@media (max-width: 480px) {
-    :root {
-        --spacing-md: 0.75rem;
-        --spacing-lg: 1rem;
-        --spacing-xl: 1.25rem;
-        --spacing-2xl: 2rem;
-        --spacing-3xl: 2.5rem;
-    }
-    
-    .container {
-        padding: 0 var(--spacing-sm);
-    }
-    
-    .hero-content,
-    .hero-features {
-        padding: 0 var(--spacing-sm);
-    }
-    
-    .service-card,
-    .contact-form {
-        padding: var(--spacing-lg);
-    }
-    
-    .contact-item {
-        flex-direction: column;
-        text-align: center;
-        gap: var(--spacing-md);
-    }
-}
 
 /* Portfolio Section */
 .portfolio {
@@ -1163,80 +1012,6 @@ a:hover {
     transition: var(--transition-normal);
 }
 
-/* Portfolio Responsive */
-@media (max-width: 1024px) {
-    .portfolio-grid {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    }
-}
-
-@media (max-width: 768px) {
-    .portfolio-filter {
-        justify-content: flex-start;
-        overflow-x: auto;
-        padding-bottom: var(--spacing-sm);
-    }
-    
-    .portfolio-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .portfolio-overlay {
-        opacity: 1;
-        background: linear-gradient(
-            to bottom,
-            rgba(0, 0, 0, 0.1) 0%,
-            rgba(0, 0, 0, 0.7) 100%
-        );
-    }
-    
-    .brand-logo {
-        height: 52px;
-        max-width: 200px;
-    }
-    
-    .nav-brand {
-        position: static;
-        transform: none;
-        margin: 0 auto;
-    }
-    
-    .showcase-logo {
-        height: 150px;
-    }
-    
-    .logo-showcase {
-        height: 300px;
-    }
-}
-
-@media (max-width: 480px) {
-    .nav-brand {
-        gap: var(--spacing-sm);
-    }
-    
-    .brand-logo {
-        height: 44px !important;
-    }
-    
-    .showcase-logo {
-        height: 200px !important;
-        max-width: 85%;
-    }
-    
-    .logo-showcase {
-        height: 250px;
-    }
-    
-    .footer-logo {
-        height: 60px !important;
-    }
-    
-    .portfolio-details {
-        flex-direction: column;
-        gap: var(--spacing-xs);
-    }
-}
 .svg-icon {
     display: inline-flex;
     align-items: center;
@@ -1515,6 +1290,217 @@ a:hover {
 .contact-form input::placeholder,
 .contact-form textarea::placeholder { color: #94a3b8 !important; }
 
+
+
+/* ╔══════════════════════════════════════════════════════════════════════╗
+   ║                                                                      ║
+   ║         MOBILE & RESPONSIVE STYLES  —  MODULAR SECTION              ║
+   ║                                                                      ║
+   ║  All screen-specific overrides live here.                            ║
+   ║  To change how something looks on mobile, edit this section only.    ║
+   ║  Desktop/base styles are untouched above.                            ║
+   ║                                                                      ║
+   ║  Breakpoints:                                                        ║
+   ║    @media (max-width: 1024px)  →  Tablet (iPad landscape & below)   ║
+   ║    @media (max-width: 768px)   →  Mobile (phones & small tablets)   ║
+   ║    @media (max-width: 480px)   →  Small Mobile (compact phones)     ║
+   ║                                                                      ║
+   ╚══════════════════════════════════════════════════════════════════════╝ */
+
+
+/* ═══════════════════════════════════════════════════════
+   TABLET  (max-width: 1024px)
+   ═══════════════════════════════════════════════════════ */
+@media (max-width: 1024px) {
+
+    /* — Layout — */
+    .hero-features       { gap: var(--spacing-2xl); }
+    .services-grid       { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+    .about-content       { grid-template-columns: 1fr; gap: var(--spacing-2xl); }
+    .contact-content     { grid-template-columns: 1fr; gap: var(--spacing-2xl); }
+
+    /* — Portfolio — */
+    .portfolio-grid      { grid-template-columns: repeat(2, 1fr); }
+}
+
+
+/* ═══════════════════════════════════════════════════════
+   MOBILE  (max-width: 768px)
+   ═══════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+
+    /* — Body padding for floating CTA — */
+    body { padding-bottom: 5.5rem; }
+
+    /* ── Navigation ── */
+    .navbar    { padding: 0.5rem 0; }
+    .nav-brand { position: static; transform: none; margin: 0 auto; }
+    .brand-logo { height: 52px; max-width: 200px; }
+    .nav-toggle { display: flex; position: absolute; right: 2rem; }
+
+    .nav-menu {
+        position: fixed;
+        inset: 0;
+        background: rgba(255, 255, 255, 0.97);
+        backdrop-filter: blur(24px) saturate(180%);
+        -webkit-backdrop-filter: blur(24px) saturate(180%);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2.25rem;
+        padding: 4rem 2rem;
+        transform: translateX(100%);
+        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        z-index: 999;
+    }
+    .nav-menu.active { transform: translateX(0); }
+    .nav-link {
+        font-size: 1.5rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        border-bottom: none;
+        padding: 0;
+    }
+    .nav-link:hover, .nav-link.active {
+        border-bottom: none;
+        opacity: 0.55;
+    }
+    .nav-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .nav-toggle.active span:nth-child(2) { opacity: 0; }
+    .nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+
+    /* ── Hero ── */
+    .hero          { padding: 5rem 0 3rem; min-height: 100svh; }
+    .hero-buttons  { flex-direction: column; align-items: center; gap: var(--spacing-md); }
+    .hero-features {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: var(--spacing-md);
+        justify-content: center;
+        padding: 1rem 1.5rem;
+    }
+
+    /* ── Services ── */
+    .services-grid { grid-template-columns: 1fr; }
+
+    /* ── Portfolio ── */
+    .portfolio-grid { grid-template-columns: 1fr; }
+    .portfolio-filter {
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding-bottom: var(--spacing-sm);
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+    .portfolio-filter::-webkit-scrollbar { display: none; }
+    .filter-btn { white-space: nowrap; flex-shrink: 0; }
+    .portfolio-overlay {
+        opacity: 1;
+        background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.7) 100%);
+    }
+
+    /* ── About ── */
+    .about-stats     { flex-direction: column; gap: var(--spacing-md); }
+    .about-stats .stat-item { flex: none; width: 100%; }
+    .showcase-logo   { height: 150px; }
+    .logo-showcase   { height: 300px; }
+
+    /* ── Contact / Form ── */
+    .form-row { grid-template-columns: 1fr; }
+
+    /* ── Footer ── */
+    .footer-content  { grid-template-columns: 1fr; text-align: center; gap: var(--spacing-xl); }
+    .social-links    { justify-content: center; }
+
+    /* ── Floating Mobile CTA — visible on mobile only ── */
+    .mobile-cta-float {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        position: fixed;
+        bottom: 1.25rem;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 850;
+        background: #000;
+        color: #fff;
+        font-weight: 700;
+        font-size: 0.9rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        padding: 0.875rem 2rem;
+        border-radius: 100px;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.3), 0 2px 8px rgba(0,0,0,0.12);
+        text-decoration: none;
+        white-space: nowrap;
+        opacity: 0;
+        animation: mobileCtaIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) 1.2s forwards;
+        transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.2s ease;
+    }
+    .mobile-cta-float:active {
+        transform: translateX(-50%) scale(0.97);
+        color: #fff;
+    }
+    .mobile-cta-float svg {
+        width: 1rem; height: 1rem; flex-shrink: 0; fill: currentColor;
+    }
+    .mobile-cta-float.is-hidden {
+        opacity: 0 !important;
+        pointer-events: none;
+        transform: translateX(-50%) translateY(0.75rem) !important;
+    }
+}
+
+@keyframes mobileCtaIn {
+    from { opacity: 0; transform: translateX(-50%) translateY(1.5rem); }
+    to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+
+/* ═══════════════════════════════════════════════════════
+   SMALL MOBILE  (max-width: 480px)
+   ═══════════════════════════════════════════════════════ */
+@media (max-width: 480px) {
+
+    /* — Spacing overrides — */
+    :root {
+        --spacing-md:  0.75rem;
+        --spacing-lg:  1rem;
+        --spacing-xl:  1.25rem;
+        --spacing-2xl: 2rem;
+        --spacing-3xl: 2.5rem;
+    }
+    .container { padding: 0 var(--spacing-sm); }
+
+    /* ── Hero ── */
+    .hero-content, .hero-features { padding: 0 var(--spacing-sm); }
+    .hero-features { flex-direction: column; align-items: center; }
+
+    /* ── Services / Form ── */
+    .service-card, .contact-form { padding: var(--spacing-lg); }
+
+    /* ── About ── */
+    .showcase-logo { height: 200px !important; max-width: 85%; }
+    .logo-showcase { height: 250px; }
+
+    /* ── Contact ── */
+    .contact-item { flex-direction: column; text-align: center; gap: var(--spacing-md); }
+
+    /* ── Footer ── */
+    .footer-logo { height: 60px !important; }
+
+    /* ── Portfolio ── */
+    .portfolio-details { flex-direction: column; gap: var(--spacing-xs); }
+
+    /* ── Brand ── */
+    .brand-logo { height: 44px !important; }
+}
+
+
+/* ═══════════════════════════════════════════════════════
+   END OF MOBILE STYLES
+   ═══════════════════════════════════════════════════════ */
 
 </style>
 </head>
@@ -1828,6 +1814,12 @@ a:hover {
         </div>
     </section>
 
+    <!-- ── MOBILE FLOATING CTA (mobile only — controlled via CSS) ── -->
+    <a href="#contact" class="mobile-cta-float" id="mobile-cta" aria-label="Get a Quote">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        Get a Quote
+    </a>
+
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -1871,6 +1863,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initPortfolioFilter();
     initScrollAnimations();
     initContactForm();
+    initMobileCTA();
 });
 
 /* ── SMOOTH SCROLL ─────────────────────────────────────── */
@@ -2073,6 +2066,20 @@ function initContactForm() {
             submitBtn.textContent = 'Request Quote';
         }
     });
+}
+
+/* ── MOBILE CTA VISIBILITY ──────────────────────────────── */
+function initMobileCTA() {
+    const cta     = document.getElementById('mobile-cta');
+    const contact = document.getElementById('contact');
+    if (!cta || !contact) return;
+
+    function update() {
+        const rect = contact.getBoundingClientRect();
+        cta.classList.toggle('is-hidden', rect.top < window.innerHeight * 0.85);
+    }
+    window.addEventListener('scroll', update, { passive: true });
+    update();
 }
 
 function showToast(msg, type) {
