@@ -192,6 +192,16 @@ a:hover {
     top: 50%;
     transform: translateY(-50%);
     z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.brand-slogan {
+    font-size: 0.7rem;
+    color: var(--gray-500);
+    letter-spacing: 0.05em;
+    margin-top: 2px;
 }
 
 .brand-logo {
@@ -1509,10 +1519,11 @@ a:hover {
         <nav class="navbar">
             <div class="container">
                 <div class="nav-brand">
-                    <img 
+                    <img
                     src="images/logo.png"
                     alt="NexGen Glass"
                     class="brand-logo">
+                    <span class="brand-slogan">For all your glass needs</span>
                 </div>
                 <ul class="nav-menu" id="nav-menu">
                     <li><a href="#home" class="nav-link">Home</a></li>
