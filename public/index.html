@@ -275,10 +275,18 @@ a:hover {
     left: 50%;
     transform: translateX(-50%);
     font-size: 3.5rem;
-    color: var(--gray-500);
+    color: #000;
     letter-spacing: 0.05em;
     white-space: nowrap;
     z-index: 2;
+}
+
+.splash-glass-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(240, 248, 255, 0.45);
+    z-index: 3;
+    pointer-events: none;
 }
 
 .splash-scroll {
@@ -1554,7 +1562,8 @@ a:hover {
     <section id="splash" class="splash">
         <div class="sydney-photo-bg"></div>
         <p class="splash-slogan">For all your glass needs</p>
-        <a href="#home" class="splash-scroll" aria-label="Scroll to content">
+        <div class="splash-glass-overlay"></div>
+        <a href="#home" class="splash-scroll" aria-label="Scroll to content" style="z-index:4;">
             <span>Explore</span>
             <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="6 9 12 15 18 9"/>
