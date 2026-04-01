@@ -254,8 +254,10 @@ a:hover {
     transition: var(--transition-fast);
 }
 
-/* Desktop: hide the mobile-only splash logo img */
-.splash-logo-img { display: none; }
+/* Splash overrides */
+.splash .sydney-photo-bg { display: none; }
+.splash-glass-overlay { display: none; }
+.splash-logo-img { display: block; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -60%); width: 260px; height: auto; filter: invert(1) brightness(2); z-index: 2; }
 
 /* ── SPLASH SECTION ──────────────────────────────────────────────── */
 .splash {
@@ -266,6 +268,7 @@ a:hover {
     align-items: flex-end;
     justify-content: center;
     padding-bottom: 2.5rem;
+    background: #000 !important;
 }
 
 .splash .sydney-photo-bg::after {
@@ -280,7 +283,7 @@ a:hover {
     font-size: 3.5rem;
     font-weight: 800;
     font-family: 'Inter', sans-serif;
-    color: #000;
+    color: #fff;
     letter-spacing: -0.02em;
     line-height: 1.2;
     white-space: nowrap;
@@ -302,7 +305,7 @@ a:hover {
     flex-direction: column;
     align-items: center;
     gap: 0.5rem;
-    color: #000;
+    color: #fff;
     font-size: 0.85rem;
     font-weight: 500;
     letter-spacing: 0.08em;
@@ -313,7 +316,7 @@ a:hover {
 .splash-scroll svg {
     width: 1.5rem;
     height: 1.5rem;
-    stroke: #000;
+    stroke: #fff;
 }
 
 @keyframes scrollBounce {
@@ -1371,24 +1374,6 @@ a:hover {
     /* ── Navigation ── */
     .window-grid { display: none; }
 
-    /* Black splash background */
-    .splash { background: #000 !important; }
-    .splash .sydney-photo-bg { display: none; }
-    .splash-glass-overlay { display: none; }
-    .splash .sydney-photo-bg::after { display: none; }
-
-    /* White inverted logo on splash */
-    .splash-logo-img {
-        display: block;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -60%);
-        width: 200px;
-        height: auto;
-        filter: invert(1) brightness(2);
-        z-index: 2;
-    }
 
     .splash-slogan { font-size: 1.8rem; top: 70%; white-space: normal; text-align: center; width: 90%; }
 
