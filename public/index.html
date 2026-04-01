@@ -261,11 +261,24 @@ a:hover {
 body.past-splash { background-color: #fff !important; }
 html { background-color: #000; }
 
-/* Hide nav links until header is visible (desktop only) */
-@media (min-width: 769px) {
-    .nav-menu { opacity: 0; transition: opacity 0.4s ease; pointer-events: none; }
-    body.past-splash .nav-menu { opacity: 1; pointer-events: auto; }
+/* Desktop nav inside header pill */
+.desktop-nav {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+    align-items: center;
 }
+.desktop-nav .nav-link {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--gray-700);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.desktop-nav .nav-link:hover { color: #000; }
+@media (max-width: 768px) { .desktop-nav { display: none; } }
 
 /* Splash overrides */
 .splash-logo-img {
@@ -1621,11 +1634,15 @@ html { background-color: #000; }
         <nav class="navbar">
             <div class="container">
                 <div class="nav-brand">
-                    <img
-                    src="images/logo.png"
-                    alt="NexGen Glass"
-                    class="brand-logo">
+                    <img src="images/logo.png" alt="NexGen Glass" class="brand-logo">
                 </div>
+                <ul class="desktop-nav">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
                 <div class="nav-toggle" id="nav-toggle">
                     <span></span><span></span><span></span>
                 </div>
