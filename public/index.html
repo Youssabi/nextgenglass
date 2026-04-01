@@ -77,7 +77,8 @@ body {
     font-family: var(--font-family);
     line-height: 1.6;
     color: var(--gray-800);
-    background-color: var(--white);
+    background-color: #000;
+    transition: background-color 0.4s ease;
     font-size: var(--font-size-base);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -165,12 +166,14 @@ a:hover {
 /* Header */
 .header {
     background-color: var(--white);
-    box-shadow: var(--shadow-sm);
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    top: 20px;
+    left: 32px;
+    right: 32px;
     z-index: 1000;
+    border-radius: 20px;
+    transform: translateY(-120px);
+    transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
 }
 
 .navbar {
@@ -254,8 +257,22 @@ a:hover {
     transition: var(--transition-fast);
 }
 
+/* Global past-splash */
+body.past-splash { background-color: #fff !important; }
+html { background-color: #000; }
+
 /* Splash overrides */
-.splash-logo-img { display: none; }
+.splash-logo-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    width: 320px;
+    height: auto;
+    filter: invert(1) brightness(2);
+    z-index: 2;
+    display: block;
+}
 
 /* ── SPLASH SECTION ──────────────────────────────────────────────── */
 .splash {
@@ -1109,11 +1126,19 @@ a:hover {
 
 /* ── NAV ─────────────────────────────────────────────────────────── */
 .header {
-    background: rgba(255,255,255,0.88) !important;
-    backdrop-filter: blur(16px) !important;
-    -webkit-backdrop-filter: blur(16px) !important;
-    border-bottom: 1px solid rgba(255,255,255,0.5) !important;
-    box-shadow: 0 1px 20px rgba(0,0,0,0.06) !important;
+    background: rgba(255,255,255,0.92) !important;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.1) !important;
+    border-bottom: none !important;
+    top: 20px !important;
+    left: 32px !important;
+    right: 32px !important;
+    width: auto !important;
+    border-radius: 20px !important;
+    transform: translateY(-120px);
+    transition: transform 0.4s cubic-bezier(0.16,1,0.3,1) !important;
+}
+.header.header-visible {
+    transform: translateY(0) !important;
 }
 
 /* ── HERO ────────────────────────────────────────────────────────── */
@@ -1345,9 +1370,7 @@ a:hover {
 @media (max-width: 768px) {
 
     /* — Body padding for floating CTA — */
-    body { padding-bottom: 5.5rem; background-color: #000; transition: background-color 0.4s ease; text-align: center; }
-    html { background-color: #000; }
-    body.past-splash { background-color: #fff; }
+    body { padding-bottom: 5.5rem; text-align: center; }
 
     /* ── Navigation ── */
     .window-grid { display: none; }
@@ -2100,36 +2123,16 @@ function initScrollAnimations() {
         });
 }
 
-/* ── HEADER SHADOW ON SCROLL ────────────────────────────── */
-let lastScrollY = 0;
+/* ── HEADER + SPLASH SCROLL ─────────────────────────────── */
 window.addEventListener('scroll', () => {
-    if (window.innerWidth <= 768) {
-        document.body.classList.toggle('past-splash', window.scrollY > 80);
-    }
     const header = document.querySelector('.header');
-    if (!header) return;
+    const scrolled = window.scrollY > 80;
 
-    if (window.innerWidth <= 768) {
-        if (window.scrollY > 80) {
-            header.classList.add('header-visible');
-        } else {
-            header.classList.remove('header-visible');
-        }
-        const cta = document.getElementById('mobile-cta');
-        if (cta) {
-            if (window.scrollY > 200) {
-                cta.classList.add('is-visible');
-            } else {
-                cta.classList.remove('is-visible');
-            }
-        }
-    } else {
-        header.style.boxShadow = window.scrollY > 80
-            ? '0 4px 24px rgba(0,0,0,0.1)'
-            : '';
-    }
+    document.body.classList.toggle('past-splash', scrolled);
+    if (header) header.classList.toggle('header-visible', scrolled);
 
-    lastScrollY = window.scrollY;
+    const cta = document.getElementById('mobile-cta');
+    if (cta) cta.classList.toggle('is-visible', window.scrollY > 200);
 }, { passive: true });
 
 /* ── CONTACT FORM ───────────────────────────────────────── */
