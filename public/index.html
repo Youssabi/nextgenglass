@@ -1366,12 +1366,7 @@ a:hover {
     body { padding-bottom: 5.5rem; }
 
     /* ── Navigation ── */
-    /* Hide grid on mobile */
     .window-grid { display: none; }
-
-    /* Header hide/show on scroll */
-    .header { transition: transform 0.35s ease !important; }
-    .header.header-hidden { transform: translateY(-100%) !important; }
 
     /* Shiny glass logo effect */
     .sydney-photo-bg {
@@ -1379,12 +1374,33 @@ a:hover {
     }
 
     .splash-slogan { font-size: 1.8rem; top: 70%; white-space: normal; text-align: center; width: 90%; }
-    .navbar    { padding: 0; height: 110px; }
+
+    /* ── Floating pill header on mobile ── */
+    .header {
+        position: fixed !important;
+        top: 16px !important;
+        left: 50% !important;
+        transform: translateX(-50%) translateY(-120px) !important;
+        width: calc(100% - 32px) !important;
+        height: auto !important;
+        border-radius: 20px !important;
+        background: rgba(255,255,255,0.85) !important;
+        backdrop-filter: blur(20px) saturate(180%) !important;
+        -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.8) !important;
+        border: 1px solid rgba(255,255,255,0.6) !important;
+        overflow: visible !important;
+        transition: transform 0.4s cubic-bezier(0.16,1,0.3,1) !important;
+        z-index: 1000 !important;
+    }
+    .header.header-visible {
+        transform: translateX(-50%) translateY(0) !important;
+    }
+    .navbar    { padding: 0; height: 64px; }
     .navbar .container { height: 100%; }
-    .header    { height: 110px !important; overflow: hidden !important; }
     .nav-brand { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); }
-    .brand-logo { height: 90px !important; width: auto !important; max-width: 90% !important; }
-    .nav-toggle { display: flex; position: absolute; right: 2rem; top: 50%; transform: translateY(-50%); }
+    .brand-logo { height: 48px !important; width: auto !important; max-width: 90% !important; }
+    .nav-toggle { display: flex; position: absolute; right: 1.25rem; top: 50%; transform: translateY(-50%); }
 
     .sidebar-overlay {
         display: none;
@@ -2091,18 +2107,19 @@ window.addEventListener('scroll', () => {
     const header = document.querySelector('.header');
     if (!header) return;
 
-    header.style.boxShadow = window.scrollY > 80
-        ? '0 4px 24px rgba(0,0,0,0.1)'
-        : '';
-
     if (window.innerWidth <= 768) {
-        if (window.scrollY > lastScrollY && window.scrollY > 120) {
-            header.classList.add('header-hidden');
+        if (window.scrollY > 80) {
+            header.classList.add('header-visible');
         } else {
-            header.classList.remove('header-hidden');
+            header.classList.remove('header-visible');
         }
-        lastScrollY = window.scrollY;
+    } else {
+        header.style.boxShadow = window.scrollY > 80
+            ? '0 4px 24px rgba(0,0,0,0.1)'
+            : '';
     }
+
+    lastScrollY = window.scrollY;
 }, { passive: true });
 
 /* ── CONTACT FORM ───────────────────────────────────────── */
