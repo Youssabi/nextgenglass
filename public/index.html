@@ -177,7 +177,7 @@ a:hover {
 }
 
 .navbar {
-    padding: 0.75rem 0;
+    padding: 1.25rem 0;
 }
 
 .navbar .container {
@@ -208,7 +208,7 @@ a:hover {
 }
 
 .brand-logo {
-    height: 70px;
+    height: 100px;
     width: auto;
     max-width: none;
     object-fit: contain;
@@ -260,6 +260,12 @@ a:hover {
 /* Global past-splash */
 body.past-splash { background-color: #fff !important; }
 html { background-color: #000; }
+
+/* Hide nav links until header is visible (desktop only) */
+@media (min-width: 769px) {
+    .nav-menu { opacity: 0; transition: opacity 0.4s ease; pointer-events: none; }
+    .header.header-visible .nav-menu { opacity: 1; pointer-events: auto; }
+}
 
 /* Splash overrides */
 .splash-logo-img {
