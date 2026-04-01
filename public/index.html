@@ -255,7 +255,7 @@ a:hover {
 }
 
 /* Splash overrides */
-.splash-logo-img { display: block; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -60%); width: 260px; height: auto; filter: invert(1) brightness(2); z-index: 2; }
+.splash-logo-img { display: none; }
 
 /* ── SPLASH SECTION ──────────────────────────────────────────────── */
 .splash {
@@ -1364,6 +1364,19 @@ a:hover {
 
     /* ── Navigation ── */
     .window-grid { display: none; }
+
+    /* Splash mobile */
+    .splash-logo-img {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -60%);
+        width: 240px;
+        height: auto;
+        filter: invert(1) brightness(2);
+        z-index: 2;
+    }
 
 
     .splash-slogan { font-size: 1.8rem; top: 70%; white-space: normal; text-align: center; width: 90%; }
