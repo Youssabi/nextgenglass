@@ -1071,21 +1071,7 @@ a:hover {
     overflow: hidden;
 }
 
-/* The Sydney photo sits behind everything */
-.sydney-photo-bg {
-    position: absolute;
-    inset: 0;
-    background: url('images/bg-pattern.png') center/contain no-repeat;
-    z-index: 0;
-}
-
-/* Frosted glass tint so content is readable */
-.sydney-photo-bg::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba(240, 248, 255, 0.45);
-}
+.sydney-photo-bg { display: none !important; }
 
 /* Window pane grid - thin lines */
 .window-grid {
