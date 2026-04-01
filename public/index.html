@@ -255,8 +255,6 @@ a:hover {
 }
 
 /* Splash overrides */
-.splash .sydney-photo-bg { display: none; }
-.splash-glass-overlay { display: none; }
 .splash-logo-img { display: block; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -60%); width: 260px; height: auto; filter: invert(1) brightness(2); z-index: 2; }
 
 /* ── SPLASH SECTION ──────────────────────────────────────────────── */
@@ -290,13 +288,6 @@ a:hover {
     z-index: 2;
 }
 
-.splash-glass-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(240, 248, 255, 0.45);
-    z-index: 3;
-    pointer-events: none;
-}
 
 .splash-scroll {
     position: relative;
@@ -1616,10 +1607,8 @@ a:hover {
     </ul>
 
     <section id="splash" class="splash">
-        <div class="sydney-photo-bg"></div>
         <img src="images/logo.png" alt="NexGen Glass" class="splash-logo-img">
         <p class="splash-slogan">For all your glass needs</p>
-        <div class="splash-glass-overlay"></div>
         <a href="#home" class="splash-scroll" aria-label="Scroll to content" style="z-index:4;">
             <span>Explore</span>
             <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
