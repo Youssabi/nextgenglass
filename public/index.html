@@ -2104,10 +2104,7 @@ function initScrollAnimations() {
 let lastScrollY = 0;
 window.addEventListener('scroll', () => {
     if (window.innerWidth <= 768) {
-        const splash = document.getElementById('splash');
-        if (splash) {
-            document.body.classList.toggle('past-splash', window.scrollY > splash.offsetHeight - 50);
-        }
+        document.body.classList.toggle('past-splash', window.scrollY > 80);
     }
     const header = document.querySelector('.header');
     if (!header) return;
