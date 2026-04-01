@@ -2178,16 +2178,7 @@ function initContactForm() {
 
 /* ── MOBILE CTA VISIBILITY ──────────────────────────────── */
 function initMobileCTA() {
-    const cta     = document.getElementById('mobile-cta');
-    const contact = document.getElementById('contact');
-    if (!cta || !contact) return;
-
-    function update() {
-        const rect = contact.getBoundingClientRect();
-        cta.classList.toggle('is-hidden', rect.top < window.innerHeight * 0.85);
-    }
-    window.addEventListener('scroll', update, { passive: true });
-    update();
+    // Visibility now handled by the main scroll listener
 }
 
 function showToast(msg, type) {
