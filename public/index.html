@@ -1366,6 +1366,40 @@ a:hover {
     body { padding-bottom: 5.5rem; }
 
     /* ── Navigation ── */
+    /* Hide grid on mobile */
+    .window-grid { display: none; }
+
+    /* Header hide/show on scroll */
+    .header { transition: transform 0.35s ease !important; }
+    .header.header-hidden { transform: translateY(-100%) !important; }
+
+    /* Splash logo glass effect */
+    .sydney-photo-bg {
+        background: none !important;
+    }
+    .splash-logo-glass {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -60%);
+        width: 220px;
+        height: 220px;
+        background: rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(20px) saturate(180%);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
+        border-radius: 28px;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1), inset 0 1px 0 rgba(255,255,255,0.6);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
+    }
+    .splash-logo-glass img {
+        width: 170px;
+        height: auto;
+    }
+
     .splash-slogan { font-size: 1.8rem; top: 70%; white-space: normal; text-align: center; width: 90%; }
     .navbar    { padding: 0; height: 110px; }
     .navbar .container { height: 100%; }
@@ -1585,6 +1619,9 @@ a:hover {
 
     <section id="splash" class="splash">
         <div class="sydney-photo-bg"></div>
+        <div class="splash-logo-glass">
+            <img src="images/logo.png" alt="NexGen Glass">
+        </div>
         <p class="splash-slogan">For all your glass needs</p>
         <div class="splash-glass-overlay"></div>
         <a href="#home" class="splash-scroll" aria-label="Scroll to content" style="z-index:4;">
@@ -2074,12 +2111,23 @@ function initScrollAnimations() {
 }
 
 /* ── HEADER SHADOW ON SCROLL ────────────────────────────── */
+let lastScrollY = 0;
 window.addEventListener('scroll', () => {
     const header = document.querySelector('.header');
     if (!header) return;
+
     header.style.boxShadow = window.scrollY > 80
         ? '0 4px 24px rgba(0,0,0,0.1)'
         : '';
+
+    if (window.innerWidth <= 768) {
+        if (window.scrollY > lastScrollY && window.scrollY > 120) {
+            header.classList.add('header-hidden');
+        } else {
+            header.classList.remove('header-hidden');
+        }
+        lastScrollY = window.scrollY;
+    }
 }, { passive: true });
 
 /* ── CONTACT FORM ───────────────────────────────────────── */
