@@ -1345,8 +1345,9 @@ a:hover {
 @media (max-width: 768px) {
 
     /* — Body padding for floating CTA — */
-    body { padding-bottom: 5.5rem; background-color: #000; }
+    body { padding-bottom: 5.5rem; background-color: #000; transition: background-color 0.4s ease; }
     html { background-color: #000; }
+    body.past-splash { background-color: #fff; }
 
     /* ── Navigation ── */
     .window-grid { display: none; }
@@ -2102,6 +2103,12 @@ function initScrollAnimations() {
 /* ── HEADER SHADOW ON SCROLL ────────────────────────────── */
 let lastScrollY = 0;
 window.addEventListener('scroll', () => {
+    if (window.innerWidth <= 768) {
+        const splash = document.getElementById('splash');
+        if (splash) {
+            document.body.classList.toggle('past-splash', window.scrollY > splash.offsetHeight - 50);
+        }
+    }
     const header = document.querySelector('.header');
     if (!header) return;
 
