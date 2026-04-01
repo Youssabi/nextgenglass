@@ -1510,8 +1510,8 @@ a:hover {
         text-decoration: none;
         white-space: nowrap;
         opacity: 0;
-        animation: mobileCtaIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) 1.2s forwards;
-        transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.2s ease;
+        pointer-events: none;
+        transition: opacity 0.4s ease, transform 0.3s ease, box-shadow 0.2s ease;
     }
     .mobile-cta-float:active {
         transform: translateX(-50%) scale(0.97);
@@ -1519,6 +1519,10 @@ a:hover {
     }
     .mobile-cta-float svg {
         width: 1rem; height: 1rem; flex-shrink: 0; fill: currentColor;
+    }
+    .mobile-cta-float.is-visible {
+        opacity: 1 !important;
+        pointer-events: auto !important;
     }
     .mobile-cta-float.is-hidden {
         opacity: 0 !important;
@@ -2106,6 +2110,14 @@ window.addEventListener('scroll', () => {
             header.classList.add('header-visible');
         } else {
             header.classList.remove('header-visible');
+        }
+        const cta = document.getElementById('mobile-cta');
+        if (cta) {
+            if (window.scrollY > 200) {
+                cta.classList.add('is-visible');
+            } else {
+                cta.classList.remove('is-visible');
+            }
         }
     } else {
         header.style.boxShadow = window.scrollY > 80
