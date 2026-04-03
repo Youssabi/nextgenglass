@@ -2014,7 +2014,8 @@ function initSmoothScroll() {
             const id = this.getAttribute('href').slice(1);
             const target = document.getElementById(id);
             if (!target) return;
-            const headerH = document.querySelector('.header').offsetHeight;
+            const headerEl = document.querySelector('.header');
+            const headerH = headerEl.classList.contains('header-visible') ? headerEl.offsetHeight : 0;
             const top = target.getBoundingClientRect().top + window.scrollY - headerH;
             window.scrollTo({ top, behavior: 'smooth' });
             document.getElementById('nav-menu')?.classList.remove('active');
