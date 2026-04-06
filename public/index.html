@@ -1837,53 +1837,16 @@ html { background-color: #000; }
             </div>
             <div class="services-grid">
 
-                <div class="service-card shower-types-card">
-                    <h3>Shower Screens</h3>
-                    <div class="shower-types-grid">
-
-                        <div class="shower-type-item">
-                            <div class="shower-type-photo" onclick="openLightbox(this)">
-                                <img src="images/modern-shower-screen.jpg" alt="Frameless Shower Screen">
-                                <span class="zoom-hint">View full photo</span>
-                            </div>
-                            <h4>Frameless Shower Screen</h4>
-                            <ul class="service-features">
-                                <li>10mm glass</li>
-                                <li>Australian manufactured hardware</li>
-                                <li>Bespoke design</li>
-                            </ul>
-                            <p class="shower-type-caption">Frameless shower screen held by quality minimalist hardware</p>
-                        </div>
-
-                        <div class="shower-type-item">
-                            <div class="shower-type-photo" onclick="openLightbox(this)">
-                                <img src="images/sliding-shower-screen.jpg" alt="Semi-Frameless Shower Screen">
-                                <span class="zoom-hint">View full photo</span>
-                            </div>
-                            <h4>Semi-Frameless Shower Screen</h4>
-                            <ul class="service-features">
-                                <li>6mm glass</li>
-                                <li>Thin aluminium frame</li>
-                                <li>Sleek design</li>
-                            </ul>
-                            <p class="shower-type-caption">Semi frameless shower screen thin aluminium frame all round</p>
-                        </div>
-
-                        <div class="shower-type-item">
-                            <div class="shower-type-photo" onclick="openLightbox(this)">
-                                <img src="images/framed-shower-screen.jpg" alt="Full-Framed Shower Screen">
-                                <span class="zoom-hint">View full photo</span>
-                            </div>
-                            <h4>Full-Framed Shower Screen</h4>
-                            <ul class="service-features">
-                                <li>6mm glass</li>
-                                <li>Thicker frame</li>
-                                <li>Watertight</li>
-                            </ul>
-                            <p class="shower-type-caption">Full-framed shower screen thicker frame eco friendly</p>
-                        </div>
-
+                <div class="service-card">
+                    <div class="service-icon">
+                        <img src="images/Showerscreen.jpeg" alt="Shower Screen Installation">
                     </div>
+                    <h3>Shower Screens</h3>
+                    <ul class="service-features">
+                        <li>Frameless shower screens</li>
+                        <li>Semi frameless</li>
+                        <li>Fully framed</li>
+                    </ul>
                 </div>
 
                 <div class="service-card">
@@ -2379,30 +2342,5 @@ function showToast(msg, type) {
 }
 </script>
 
-<!-- Lightbox Modal -->
-<div class="lightbox-overlay" id="lightbox" onclick="closeLightbox(event)">
-    <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
-    <img id="lightbox-img" src="" alt="">
-</div>
-
-<script>
-function openLightbox(el) {
-    const img = el.querySelector('img');
-    document.getElementById('lightbox-img').src = img.src;
-    document.getElementById('lightbox-img').alt = img.alt;
-    document.getElementById('lightbox').classList.add('open');
-    document.body.style.overflow = 'hidden';
-}
-
-function closeLightbox(e) {
-    if (e && e.target === document.getElementById('lightbox-img')) return;
-    document.getElementById('lightbox').classList.remove('open');
-    document.body.style.overflow = '';
-}
-
-document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') closeLightbox();
-});
-</script>
 </body>
 </html>
