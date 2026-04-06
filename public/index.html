@@ -704,13 +704,12 @@ html { background-color: #000; }
 
 /* ── SHOWER SCREEN PORTFOLIO — zoomed out + clickable ────── */
 .portfolio-item[data-category="shower-screens"] .portfolio-image {
-    background: #1a1a1a;
     cursor: pointer;
 }
 
 .portfolio-item[data-category="shower-screens"] .portfolio-image img {
-    object-fit: contain;
-    object-position: center;
+    object-fit: cover;
+    object-position: center top;
 }
 
 /* ── LIGHTBOX ────────────────────────────────────────────── */
@@ -780,13 +779,14 @@ html { background-color: #000; }
 
 .about-stats {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     gap: var(--spacing-lg);
-    margin-bottom: var(--spacing-2xl);
+    width: 100%;
 }
 
 .about-stats .stat-item {
-    flex: 0 0 220px;
+    flex: none;
+    width: 100%;
 }
 
 .stat-item {
@@ -1698,8 +1698,7 @@ html { background-color: #000; }
     }
 
     /* ── About ── */
-    .about-stats     { flex-direction: column; gap: var(--spacing-md); }
-    .about-stats .stat-item { flex: none; width: 100%; }
+    .about-stats     { gap: var(--spacing-md); }
     .showcase-logo   { height: 150px; }
     .logo-showcase   { height: 300px; }
 
@@ -2038,12 +2037,11 @@ html { background-color: #000; }
                     </div>
                 </div>
                 <div class="about-image">
-
+                    <div class="about-stats">
+                        <div class="stat-item"><div class="stat-number">5+</div><div class="stat-label">Years Experience</div></div>
+                        <div class="stat-item"><div class="stat-number">100%</div><div class="stat-label">Customer Satisfaction</div></div>
+                    </div>
                 </div>
-            </div>
-            <div class="about-stats">
-                <div class="stat-item"><div class="stat-number">5+</div><div class="stat-label">Years Experience</div></div>
-                <div class="stat-item"><div class="stat-number">100%</div><div class="stat-label">Customer Satisfaction</div></div>
             </div>
         </div>
     </section>
